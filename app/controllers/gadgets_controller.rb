@@ -1,4 +1,5 @@
 class GadgetsController < ApplicationController
+  before_action :authenticate_user!
   before_action :fetch_gadget, except: [:index, :create, :new]
 
   def index

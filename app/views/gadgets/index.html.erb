@@ -1,2 +1,13 @@
-<h1>Gadgets#index</h1>
-<p>Find me in app/views/gadgets/index.html.erb</p>
+<h1>Your gadgets</h1>
+
+<a class="btn btn-primary" href=<%= new_gadget_path %>>Add</a>
+
+<ul>
+  <% @gadgets.each do |gadget| %>
+    <li>
+      <%= gadget.title %> - 
+      <%= link_to 'Edit', edit_gadget_path(gadget.id), class: 'btn btn-xs btn-warning' %>
+      <%= link_to 'Delete', gadget_path(gadget.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-xs' %>
+    </li>
+  <% end -%>
+</ul>
